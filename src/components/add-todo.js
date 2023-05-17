@@ -1,9 +1,6 @@
 import React from "react";
 import { useState } from "react";
-
 import AddTodoStyles from "./add-todo.module.css";
-
-// a function should do only one thing.
 
 const AddTodo = ({ addTodo }) => {
   const [newTodo, setNewTodo] = useState("");
@@ -21,19 +18,18 @@ const AddTodo = ({ addTodo }) => {
   }
 
   return (
-    <>
-      <div>
-        <input
-          value={newTodo}
-          className={AddTodoStyles.todoInput}
-          onChange={handleChange}
-          onKeyDown={checkEnter}
-        />
-        <button className={AddTodoStyles.addTodoButton} onClick={handleClick}>
-          Add Todo
-        </button>
-      </div>
-    </>
+    <div className={AddTodoStyles.container}>
+      <input
+        value={newTodo}
+        className={AddTodoStyles.todoInput}
+        placeholder="Add new todo"
+        onChange={handleChange}
+        onKeyDown={checkEnter}
+      />
+      <button className={AddTodoStyles.addTodoButton} onClick={handleClick}>
+        Add Todo
+      </button>
+    </div>
   );
 };
 

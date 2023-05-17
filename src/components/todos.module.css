@@ -7,7 +7,7 @@
 .todoWrapper {
     display: flex;
     margin: 15px 0px;
-    max-width: 350px;
+    max-width: 400px;
 }
 
 .tickIcon {
@@ -15,4 +15,16 @@
 }
 .tickIcon:hover {
     cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .todoLabel {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 530px) {
+    .todoLabel {
+        font-size: 22px;
+    }
 }

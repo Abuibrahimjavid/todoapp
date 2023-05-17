@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "30px" }} className="App root">
+    <div className="App">
       <AddTodo addTodo={addTodo} />
       <CompletedTodos completedTodos={completedTodos} removeTodo={removeTodo} />
       <TodosList todos={todos} markTodoAsDone={markTodoAsDone} />
