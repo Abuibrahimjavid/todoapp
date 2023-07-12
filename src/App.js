@@ -3,6 +3,15 @@ import TodosList from "./components/todos-list";
 import AddTodo from "./components/add-todo";
 import "./App.css";
 import CompletedTodos from "./components/completed-todos";
+import {
+  Typography,
+  Toolbar,
+  CssBaseline,
+  AppBar,
+  Container,
+} from "@mui/material";
+import ListIcon from "@mui/icons-material/List";
+
 function App() {
   const [todos, setTodos] = useState(["Learn React", "Build Apps"]);
   const [completedTodos, setCompletedTodos] = useState([]);
@@ -24,11 +33,40 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <AddTodo addTodo={addTodo} />
-      <CompletedTodos completedTodos={completedTodos} removeTodo={removeTodo} />
-      <TodosList todos={todos} markTodoAsDone={markTodoAsDone} />
-    </div>
+    <>
+      <CssBaseline />
+      <AppBar position="static">
+        <Toolbar>
+          <ListIcon />
+          <Typography variant="h6" align="center">
+            Todo App
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <main>
+        <div>
+          <Container maxWidth="md" sx={{ marginTop: "50px" }}>
+            <Typography
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+              sx={(theme) => ({ color: theme.palette.primary.main })}
+            >
+              TodosListApp
+            </Typography>
+            <div className="App">
+              <AddTodo addTodo={addTodo} />
+              <CompletedTodos
+                completedTodos={completedTodos}
+                removeTodo={removeTodo}
+              />
+              <TodosList todos={todos} markTodoAsDone={markTodoAsDone} />
+            </div>
+          </Container>
+        </div>
+      </main>
+    </>
   );
 }
 

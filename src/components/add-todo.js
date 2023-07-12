@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import AddTodoStyles from "./add-todo.module.css";
+import { TextField, Button, Stack } from "@mui/material";
 
 const AddTodo = ({ addTodo }) => {
   const [newTodo, setNewTodo] = useState("");
@@ -19,16 +20,22 @@ const AddTodo = ({ addTodo }) => {
 
   return (
     <div className={AddTodoStyles.container}>
-      <input
-        value={newTodo}
-        className={AddTodoStyles.todoInput}
-        placeholder="Add new todo"
-        onChange={handleChange}
-        onKeyDown={checkEnter}
-      />
-      <button className={AddTodoStyles.addTodoButton} onClick={handleClick}>
-        Add Todo
-      </button>
+      <div className={AddTodoStyles.container}>
+        <Stack direction="row" spacing={2} justifyContent="center">
+          <TextField
+            value={newTodo}
+            id="outlined-basic"
+            label="Add NewTodo"
+            variant="outlined"
+            placeholder="Add new todo"
+            onChange={handleChange}
+            onKeyDown={checkEnter}
+          />
+          <Button variant="contained" onClick={handleClick}>
+            Add Todo
+          </Button>
+        </Stack>
+      </div>
     </div>
   );
 };
